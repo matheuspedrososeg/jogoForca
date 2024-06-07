@@ -1,0 +1,67 @@
+
+Jogo da Forca.
+
+Explicação de cada classe:
+
+classe game:
+
+Declara as variaveis: player, word, e hangman. E coloca-os em um constructor.
+
+Na classe game é criado o método boolean "notFinished", que indica que enquanto a palavra não for completa, ou o boneco não estiver enforcado, o jogo não
+terminará. Na mesma classe também é criado o método run, que indica que enquanto o jogo não acabar (usando um while) , ele chamará o método printFork, e o método print
+da palavra, basicamente indica quais letras já foram preenchidas e quais faltam, e em qual passo o boneco está. Após isso é criado uma condição if que
+se a palavra estiver completa, ele irá imprimir que você ganhou. Ou se o boneco for enforcado, irá imprimir que você perdeu.
+
+classe word: 
+
+Declara a variável String: "secretWord" que corresponde a palavra secreta, e uma Lista chamada "viewWord".
+No constructor existe um if que identifica se a palavra secreta não está em branco, para evitar o programa de rodar sem uma palavra. 
+Na próxima linha, a palavra secreta é colocada em maiúsculo usando o .toUpperCase, e é criado um novo arraylist com a variável viewWord,
+e um laço de repetição for é criado para adicionar um "-" para cada letra até atingir o comprimento da palavra.
+
+Após isso, é criado o método boolean "isCompleted" que retorna a variável "viewWord" com um "!" na frente para indicar que quando não houver mais
+nenhum "-", o método será chamado.
+
+E no final da classe word é criado o método bolean "processShot" com o parâmetro: (char shot), o parâmetro shot é o
+input do usuário, dentro deste método é criado um um laço for,e uma condição if, nessa condição diz:
+se o caractére que o usuário digitou (colocado em maiusculo usando toUpperCase para evitar bugs) for igual a algum 
+caractére da palavra secreta: (secretWord.charAt(index)) na próxima linha é feito um "viewWord.set" que irá pegar o "index" onde o caractére digitado está e
+o próprio caractére digitado. Ou seja, caso essa condição seja verdaddeira, no final ele irá retornar um ".contains" que irá retornar a palavra com as 
+letras que estão preenchidas. Caso seja falso, ou seja caso a condição if não é cumprida, ele não irá adicionar nada no viewWord.
+
+classe player:
+
+A classe player é utilizada para criar o objeto player para ser utilizado na classe App na hora de rodar o programa.
+
+classe App:
+
+A classe app é utilizada para implementar o método run, que simplesmente cria a instância dos objetos, como o objeto player, hangman, wordservice, e 
+Game e é utilizada posteriormente na hora de rodar o programa, por isso é chamada no método main, como "App.start();"
+
+classe Hangman:
+
+É a classe responsável pelo boneco, nela inclui a lista de passos, (as fases do boneco, que são chamadas a cada vez que o jogador erra)  e os métodos
+responsáveis por indicar em qual fase o boneco está.
+
+interface StepFork: responsável pelo método printStep, que simplesmente imprime em qual fase o boenco está.
+
+classes Step0 até Step07:
+
+São as implpementações da interface StepFork, servem simplesmente para imprimir o desenho do boneco, cada step, é um desenho diferente do boneco.
+
+classe WordService:
+
+A classe responsável pela palavra secreta. Nela é inclusa as palavras secretas disponiveis para o jogo escolher.
+
+
+
+ 
+
+
+
+
+
+
+
+
+
